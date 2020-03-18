@@ -1,14 +1,31 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {Input, Button, CheckBox} from '@ui-kitten/components';
+import {
+  Input,
+  Button,
+  Icon,
+  CheckBox,
+  TopNavigationAction,
+  TopNavigation,
+} from '@ui-kitten/components';
 
-export const Login = () => {
+export const Login = ({navigation}) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [checked, setChecked] = React.useState(false);
 
+  const BackIcon = style => <Icon {...style} name="arrow-back" />;
+
+  const navigateBack = () => {
+    navigation.goBack();
+  };
+
+  const BackAction = () => (
+    <TopNavigationAction icon={BackIcon} onPress={navigateBack} />
+  );
   return (
     <React.Fragment>
+      <TopNavigation leftControl={BackAction()} />
       <View
         style={{
           flex: 1,
@@ -40,7 +57,9 @@ export const Login = () => {
           onChange={isChecked => setChecked(isChecked)}
           style={{marginBottom: 15}}
         />
-        <Button status="primary">LOGIN</Button>
+        <Button status="primary" onPress={() => navigation.navigate('Home')}>
+          LOGIN
+        </Button>
       </View>
     </React.Fragment>
   );
