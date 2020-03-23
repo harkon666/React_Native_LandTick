@@ -1,5 +1,4 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import {
   Datepicker,
   Icon,
@@ -109,7 +108,7 @@ export const AutocompleteSimpleUsageShowcase = ({navigation}) => {
         />
         <Button
           style={{marginVertical: 15, marginHorizontal: 10}}
-          onPress={() => navigation.navigate('Home')}>
+          onPress={() => navigation.navigate('Drawer')}>
           Cari Ticket{' '}
         </Button>
       </Layout>

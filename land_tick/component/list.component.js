@@ -1,19 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {
-  TopNavigation,
-  TopNavigationAction,
-  Icon,
-  List,
-  ListItem,
-} from '@ui-kitten/components';
+import {Text} from 'react-native';
+import {Icon, List, ListItem} from '@ui-kitten/components';
+import {ListTopNav, TicketTopNav} from './topNav.component';
 
 const data = new Array(8).fill({
   title: 'Title for Item',
   description: 'Description for Item',
 });
 
-export const TicketList = () => {
+export const TicketList = ({navigation}) => {
   const renderItemAccessory = style => <Text>Rp. 320.000</Text>;
 
   const renderItemIcon = style => (
@@ -30,5 +25,10 @@ export const TicketList = () => {
     />
   );
 
-  return <List data={data} renderItem={renderItem} />;
+  return (
+    <React.Fragment>
+      <ListTopNav navigation={navigation} />
+      <List data={data} renderItem={renderItem} />
+    </React.Fragment>
+  );
 };

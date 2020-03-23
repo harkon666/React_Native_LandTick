@@ -57,7 +57,7 @@ export const Login = ({navigation}) => {
           onChange={isChecked => setChecked(isChecked)}
           style={{marginBottom: 15}}
         />
-        <Button status="primary" onPress={() => navigation.navigate('Home')}>
+        <Button status="primary" onPress={() => navigation.navigate('Drawer')}>
           LOGIN
         </Button>
       </View>

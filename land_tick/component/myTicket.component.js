@@ -19,16 +19,22 @@ export const MyTicket = () => {
             borderBottomColor: '#000000',
             borderBottomWidth: 1,
           }}>
-          <Text
-            status="primary"
-            style={{
-              paddingTop: 10,
-              fontSize: 24,
-              fontWeight: 'bold',
-              marginHorizontal: 5,
-            }}>
-            My Ticket
-          </Text>
+          <Layout>
+            <Text
+              status="primary"
+              style={{
+                paddingTop: 10,
+                fontSize: 24,
+                fontWeight: 'bold',
+                marginHorizontal: 5,
+              }}>
+              My Ticket
+            </Text>
+            <Text status="warning" style={{marginHorizontal: 5}}>
+              Pending
+            </Text>
+          </Layout>
+
           <Layout
             style={{flex: 1, alignContent: 'flex-end', alignItems: 'flex-end'}}>
             <Text style={{fontSize: 24, paddingTop: 10, fontWeight: '900'}}>
@@ -38,35 +44,13 @@ export const MyTicket = () => {
           </Layout>
         </Layout>
         <Layout style={{flexDirection: 'row'}}>
-          <Layout>
-            <Text style={{fontWeight: 'bold'}}>Argo Willis</Text>
-            <Text style={{marginVertical: 2}}>Eksekutif (H)</Text>
-            <Text style={{marginVertical: 10}} status="warning">
-              Pending
-            </Text>
-          </Layout>
-          <Layout style={{flex: 1, alignItems: 'center'}}>
-            <Text style={{marginBottom: 5, fontWeight: '700'}}>15:00</Text>
-            <Icon
-              width={32}
-              height={32}
-              fill="#000000"
-              name="arrow-downward-outline"
-            />
-            <Text
-              style={{
-                marginHorizontal: 5,
-                fontWeight: '700',
-                marginTop: 5,
-              }}>
-              18:00
-            </Text>
+          <Layout style={{flex: 1, marginLeft: 5}}>
+            <Text style={{fontWeight: '700'}}>15:00 - 18:00</Text>
           </Layout>
           <Layout>
             <Text
               style={{
                 marginHorizontal: 5,
-                marginBottom: 35,
                 fontWeight: '700',
               }}>
               Jakarta (GMR)

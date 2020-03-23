@@ -6,47 +6,69 @@ import {
   TopNavigationAction,
   TopNavigation,
 } from '@ui-kitten/components';
+import {DrawerActions} from '@react-navigation/native';
 
 export const ListTopNav = ({navigation}) => {
-  const UserIcon = style => <Icon {...style} name="person-outline" />;
+  const UserIcon = style => (
+    <Icon {...style} fill="#f2f2f2" name="person-outline" />
+  );
   const iconRef = React.createRef();
 
   const ForwardIcon = style => (
     <Icon
       ref={iconRef}
-      fill="#3366FF"
+      fill="#f2f2f2"
       {...style}
       name={'arrow-forward-outline'}
     />
   );
 
-  const UserAction = () => <TopNavigationAction icon={UserIcon} />;
+  const UserAction = () => (
+    <TopNavigationAction
+      onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+      icon={UserIcon}
+    />
+  );
 
   const FindTicket = () => (
     <Layout
-      style={{flexDirection: 'row'}}
+      style={{flexDirection: 'row', backgroundColor: '#3366FF'}}
       onTouchStart={() => {
         navigation.navigate('FindTicket');
         iconRef.current.startAnimation();
       }}>
-      <Layout>
-        <Text status="primary">Cari Ticket</Text>
-      </Layout>
-      <Layout>
-        <TopNavigationAction icon={ForwardIcon} />
-      </Layout>
+      <Text category="h6" style={{color: '#f2f2f2'}}>
+        Cari Ticket
+      </Text>
+      <TopNavigationAction icon={ForwardIcon} />
     </Layout>
   );
 
   return (
-    <TopNavigation leftControl={UserAction()} rightControls={FindTicket()} />
+    <TopNavigation
+      style={{backgroundColor: '#3366FF'}}
+      leftControl={UserAction()}
+      rightControls={FindTicket()}
+    />
   );
 };
 
-export const TicketTopNav = () => {
-  const UserIcon = style => <Icon {...style} name="person-outline" />;
+export const TopNav = ({navigation}) => {
+  const UserIcon = style => (
+    <Icon {...style} fill="#f2f2f2" name="person-outline" />
+  );
 
-  const UserAction = () => <TopNavigationAction icon={UserIcon} />;
+  const UserAction = () => (
+    <TopNavigationAction
+      onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+      icon={UserIcon}
+    />
+  );
 
-  return <TopNavigation leftControl={UserAction()} />;
+  return (
+    <TopNavigation
+      style={{backgroundColor: '#3366FF'}}
+      leftControl={UserAction()}
+    />
+  );
 };
